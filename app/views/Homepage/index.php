@@ -10,6 +10,8 @@
 <body>
     <h1>Amine's mvc opdracht 2 </h1>
     <h3><?= $data['title']; ?></h3>
-
+    <a class="button" href="<?= URLROOT; ?>/Instructeur/overzichtinstructeur">Instructeurs in dienst</a> 
+    <a class="button" href="<?= URLROOT; ?>/Examens/overzichtexamens">Examinatoren in dienst</a> 
+    <a class="button" href="<?= URLROOT; ?>/Voertuig/overzichtVoertuigen">Alle voertuigen</a> 
 </body>
 </html>
