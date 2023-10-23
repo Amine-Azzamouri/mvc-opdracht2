@@ -10,7 +10,6 @@
 </head>
 <body>
     <u><?= $data['title']; ?></u>
-    <a href="<?= URLROOT . "/Homepage" ?>" class="button">Back</a>
     <form method="post">
         
     </form>
