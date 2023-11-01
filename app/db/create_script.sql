@@ -10,7 +10,7 @@
 DROP DATABASE IF EXISTS `Mvc-2209a-P4`;
 
 -- Create a new Database
-CREATE DATABASE IF NOT EXISTS `Mvc-2209a-P4`;
+CREATE DATABASE IF NOT EXISTS `Mvc-2209a-P4`; 
 
 -- Use database Mvc-2209a-P4
 Use `Mvc-2209a-P4`;
