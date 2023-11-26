@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
     <title>Overzicht Instructeurs</title>
 </head>
 
 <body>
+     <a  class="item-1-button"href="http://www.rijless.org">Homepage</a>
+
     <div class="column center w-12 h-12">
         <u><?= $data['title']; ?></u>
         <p>Aantal instructeurs <?= $data['amount'] ?></p>
@@ -23,6 +26,7 @@
                 <th>Datum in dienst</th>
                 <th>Aantal sterren</th>
                 <th>Voertuigen</th>
+                <th>Ziekte/Verlof</th>
             </thead>
             <tbody>
                 <?= $data['rows']; ?>

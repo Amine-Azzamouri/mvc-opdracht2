@@ -21,6 +21,7 @@ class Instructeur extends BaseController
             $date = date_create($instructeur->DatumInDienst);
             $formattedDate = date_format($date, "d-m-Y");
             $amount++;
+            // var_dump($instructeur);
             $rows .= "<tr>
                         <td>$instructeur->Voornaam</td>
                         <td>$instructeur->Tussenvoegsel</td>
@@ -34,7 +35,22 @@ class Instructeur extends BaseController
                                 directions_car
                                 </span>
                             </a>
-                        </td>            
+                        </td>    
+                        <td>
+                        <a href='" . URLROOT . "/instructeur/overzichtinstructeur/$instructeur->Id'>";
+
+                        if ($instructeur->IsActief) {
+                            $rows .= "<a href='" . URLROOT . "/instructeur/changeIsActief/$instructeur->Id'> <span class='material-symbols-outlined'>
+                            <i class='bi bi-hand-thumbs-up'></i>
+                                        </span></a>";
+                        } else {
+                            $rows .= "<a href='" . URLROOT . "/instructeur/changeIsNotActief/$instructeur->Id'> <span class='material-symbols-outlined'>
+                            <i class='bi bi-bandaid'></i>
+                                        </span></a>";
+                        }
+            $rows .= "
+                        </a>
+                    </td>  
                       </tr>";
         }
 
@@ -42,9 +58,28 @@ class Instructeur extends BaseController
             'title' => 'Instructeurs in dienst',
             'rows' => $rows,
             'amount' => $amount
-        ];
+        ];  
 
         $this->view('Instructeur/overzichtinstructeur', $data);
+    }
+
+
+    public function changeIsActief($instructeurId) 
+    {
+        $changeIsActief = $this->instructeurModel->changeIsActief($instructeurId);
+
+        // var_dump($changeIsActief);
+        $this->overzichtInstructeur();
+    }
+
+    public function changeIsNotActief($instructeurId) 
+    {
+        $changeIsActief = $this->instructeurModel->changeIsNotActief($instructeurId);
+    
+         // var_dump($changeIsNotActief);
+        $this->overzichtInstructeur();
+    
+
     }
 
     public function overzichtVoertuigen($Id, $Message = null)

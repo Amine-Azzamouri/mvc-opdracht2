@@ -12,3 +12,14 @@ body {
     padding: 10px; 
 }
 
+.item-1-button {
+    text-decoration: none;
+    width: 200px;
+    height: 40px;
+    background-color: rgba(100, 62, 177, 0.632);
+    color: aliceblue;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 1px;
+}

@@ -18,12 +18,38 @@ class InstructeurModel
                       ,Mobiel
                       ,DatumInDienst
                       ,AantalSterren
+                      ,IsActief
                 FROM  Instructeur
                 ORDER BY AantalSterren DESC";
 
         $this->db->query($sql);
         return $this->db->resultSet();
     }
+
+    public function changeIsActief($instructeurId) {
+        $sql = "UPDATE Instructeur SET IsActief = 0 WHERE Id = :instructeurId";
+        $this->db->query($sql);
+        $this->db->bind(':instructeurId', $instructeurId);
+        $this->db->excecuteWithoutReturn();
+    
+        $sql = "DELETE FROM VoertuigInstructeur WHERE InstructeurId = :instructeurId";
+        $this->db->query($sql);
+        $this->db->bind(':instructeurId', $instructeurId);
+        $this->db->excecuteWithoutReturn();
+    }
+
+    public function changeIsNotActief($instructeurId) {
+        $sql = "UPDATE Instructeur SET IsActief = 1 WHERE Id = :instructeurId";
+        $this->db->query($sql);
+        $this->db->bind(':instructeurId', $instructeurId);
+        $this->db->excecuteWithoutReturn();
+    
+
+    }
+    
+    
+    
+  
 
     public function getToegewezenVoertuigen($Id)
     {
