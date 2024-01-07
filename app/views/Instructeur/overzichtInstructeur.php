@@ -27,6 +27,8 @@
                 <th>Aantal sterren</th>
                 <th>Voertuigen</th>
                 <th>Ziekte/Verlof</th>
+                <th>Eindig contract</th>
+
             </thead>
             <tbody>
                 <?= $data['rows']; ?>

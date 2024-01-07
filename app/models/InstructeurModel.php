@@ -121,4 +121,19 @@ class InstructeurModel
 
         $this->db->excecuteWithoutReturn();
     }
+
+    public function deleteInstructeur($instructeurId)
+    {
+        $sqlDisconnect = "DELETE FROM VoertuigInstructeur WHERE InstructeurId = :instructeurId";
+        $this->db->query($sqlDisconnect);
+        $this->db->bind(':instructeurId', $instructeurId);
+        $this->db->resultSet();
+    
+        $sqlDelete = "DELETE FROM Instructeur WHERE Id = :instructeurId";
+        $this->db->query($sqlDelete);
+        $this->db->bind(':instructeurId', $instructeurId);
+        $this->db->resultSet();
+
+    }
+    
 }

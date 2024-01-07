@@ -50,7 +50,14 @@ class Instructeur extends BaseController
                         }
             $rows .= "
                         </a>
-                    </td>  
+                    </td>
+                    <td>
+                    <a href='" . URLROOT . "/instructeur/deleteInstructeur/$instructeur->Id'>
+                        <span class='material-symbols-outlined'>
+                        <i class='bi bi-person-x'></i>
+                        </span>
+                    </a>
+                </td>   
                       </tr>";
         }
 
@@ -81,6 +88,24 @@ class Instructeur extends BaseController
     
 
     }
+
+    public function deleteInstructeur($instructeurId) 
+    {
+        $isDeleted = $this->instructeurModel->deleteInstructeur($instructeurId);
+    
+
+            echo "<div id='deleteMessage'>Instructor met ID: $instructeurId is definitief verwijdert en all zijn eerder toegewezen voertuigen zijn vrijgegeven</div>";
+            echo "<script>
+                    setTimeout(function() {
+                        document.getElementById('deleteMessage').style.display = 'none';
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                    }, 2000); 
+                  </script>";
+
+    }
+    
+    
+    
 
     public function overzichtVoertuigen($Id, $Message = null)
     {
