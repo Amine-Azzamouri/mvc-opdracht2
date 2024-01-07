@@ -8,7 +8,7 @@
     <title>Home screen</title>
 </head>
 <body>
-    <h1>Amine's mvc opdracht 3 isactief/isinactief </h1>
+    <h1>Amine's mvc opdracht 4 instrcuteur contract opzeggen </h1>
     <h3><?= $data['title']; ?></h3>
     <a class="button" href="<?= URLROOT; ?>/Instructeur/overzichtinstructeur">Instructeurs in dienst</a> 
     <a class="button" href="<?= URLROOT; ?>/Examens/overzichtexamens">Examinatoren in dienst</a> 
